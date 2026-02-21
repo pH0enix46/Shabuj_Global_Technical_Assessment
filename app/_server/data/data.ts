@@ -1,8 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+// // //
 import {
   UniversitySearchParams,
   universitySearchParamsSchema,
-} from "./validations";
+} from "@/_lib/validators/validations";
+import { PrismaClient } from "@prisma/client";
 
 // Initialize a globally cached prisma instance for development
 const globalForPrisma = global as unknown as { prisma: PrismaClient };

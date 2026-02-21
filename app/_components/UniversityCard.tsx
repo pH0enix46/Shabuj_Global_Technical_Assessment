@@ -1,6 +1,6 @@
 "use client";
 
-import { University } from "../_lib/types";
+import { University } from "../_types/types";
 import {
   MapPin,
   Trophy,

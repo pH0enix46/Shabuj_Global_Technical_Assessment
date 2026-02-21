@@ -1,8 +1,8 @@
-import { getUniversities, getFilterOptions } from "../_lib/actions";
-import { UniversitySearchParams } from "../_lib/validations";
+import { UniversitySearchParams } from "../_lib/validators/validations";
 import UniversityGrid from "../_components/UniversityGrid";
 import UniversityFilters from "../_components/UniversityFilters";
 import { GraduationCap } from "lucide-react";
+import { getFilterOptions, getUniversities } from "@/_server/data/data";
 
 export const revalidate = 0; // Ensures it's dynamically rendered due to searchParams
 

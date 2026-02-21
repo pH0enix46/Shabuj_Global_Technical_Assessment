@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { University } from "../_lib/types";
+import { University } from "../_types/types";
 
 export default function ApiTestPage() {
   const [data, setData] = useState<University[]>([]);
