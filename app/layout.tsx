@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Rubik, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/_context/theme-context";
+import ModernScroll from "@/_context/modern-scroll";
 
 const rubik = Rubik({
   variable: "--font-rubik",
@@ -29,9 +30,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${rubik.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
-          <main className="relative z-0 min-h-screen w-full overflow-x-hidden">
-            {children}
-          </main>
+          <ModernScroll>
+            <main className="relative z-0 min-h-screen w-full overflow-x-hidden">
+              {children}
+            </main>
+          </ModernScroll>
         </ThemeProvider>
       </body>
     </html>
