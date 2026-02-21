@@ -20,7 +20,7 @@ export default function Loading() {
       {/* Main Content Layout */}
       <section className="max-w-7xl mx-auto px-6 xl:px-0 py-12 flex flex-col md:flex-row gap-8 items-start relative pb-32">
         {/* Skeleton Filters Sidebar */}
-        <div className="bg-white/70 dark:bg-[#111] backdrop-blur-md rounded-3xl border border-gray-200 dark:border-white/10 p-6 flex flex-col gap-6 w-full md:w-80 shrink-0 self-start shadow-sm">
+        <div className="bg-white/70 dark:bg-slate-900/50 backdrop-blur-md rounded-3xl border border-gray-200 dark:border-white/10 p-6 flex flex-col gap-6 w-full md:w-80 shrink-0 self-start shadow-xs">
           <div className="flex items-center justify-between">
             <div className="h-6 w-24 bg-gray-200 dark:bg-white/10 rounded-lg animate-pulse"></div>
             <div className="h-4 w-16 bg-gray-200 dark:bg-white/10 rounded-lg animate-pulse"></div>
@@ -48,7 +48,7 @@ export default function Loading() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div
                 key={i}
-                className="relative bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-sm"
+                className="relative bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-xs"
               >
                 {/* Top Graphic Section Skeleton */}
                 <div className="h-32 bg-gray-100 dark:bg-white/5 relative p-6 flex flex-col justify-end animate-pulse">

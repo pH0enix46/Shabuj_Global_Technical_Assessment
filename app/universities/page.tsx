@@ -19,18 +19,21 @@ export default async function UniversitiesPage({
   // Only statically fetch the filter options here so page wrapper renders instantly
   const filterOptions = await getFilterOptions();
 
+  // DEV TEST: Fake 1 minute delay so you can perfectly test the loading.tsx UI!
+  // await new Promise((resolve) => setTimeout(resolve, 60000));
+
   return (
     <main className="min-h-screen bg-transparent">
       {/* Premium Hero Section */}
       <section className="relative pt-32 pb-20 px-6 xl:px-0 bg-background overflow-hidden border-b border-gray-200 dark:border-white/10">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"></div>
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6 ring-1 ring-blue-500/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-primary text-sm font-semibold mb-6 ring-1 ring-blue-500/20">
             <GraduationCap className="w-4 h-4" /> Global Education
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-gray-900 dark:text-white">
             Find Your{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-indigo-700 dark:from-blue-400 dark:to-indigo-700">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-sky-600 to-indigo-700 dark:from-sky-500 dark:to-indigo-700">
               Perfect University
             </span>
           </h1>
@@ -93,7 +96,7 @@ function GridSkeleton() {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-2">
-        <div className="h-8 w-40 bg-gray-200 dark:bg-white/10 rounded animate-pulse" />
+        <div className="h-8 w-40 bg-gray-200 dark:bg-white/10 rounded-xl animate-pulse" />
         <div className="h-6 w-24 bg-gray-200 dark:bg-white/10 rounded-full animate-pulse" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
