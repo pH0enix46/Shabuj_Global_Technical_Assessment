@@ -61,7 +61,7 @@ export default async function UniversitiesPage({
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               Search Results
             </h2>
-            <div className="bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-bold shadow-sm">
+            <div className="bg-sky-50 text-primary dark:bg-blue-900/20 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-bold border border-primary/30">
               {count} {count === 1 ? "University" : "Universities"}
             </div>
           </div>

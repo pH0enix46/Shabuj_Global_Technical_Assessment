@@ -1,5 +1,4 @@
-"use client";
-
+// // //
 import { University } from "../../_types/types";
 import UniversityCard from "./UniversityCard";
 import { Inbox } from "lucide-react";
@@ -19,7 +18,7 @@ export default function UniversityGrid({
           No Universities Found
         </h3>
         <p className="text-gray-500 dark:text-gray-400 mt-1 max-w-sm">
-          Try modifying your filters to explore more opportunities.
+          Try modifying your filters to explore more opportunities
         </p>
       </div>
     );

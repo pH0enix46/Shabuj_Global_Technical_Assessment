@@ -1,5 +1,5 @@
+// // //
 "use client";
-
 import {
   MapPin,
   Trophy,
@@ -24,14 +24,14 @@ export default function UniversityCard({
 
   return (
     <div
-      className={`relative group bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border transition-all duration-300 ${
+      className={`relative group bg-slate-50 dark:bg-slate-900/50 backdrop-blur-md rounded-2xl overflow-hidden border transition-all duration-300 ${
         isSelected
-          ? "border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-          : "border-gray-200 dark:border-white/10 shadow-sm hover:shadow-xl hover:-translate-y-1"
+          ? "border-primary/60 shadow"
+          : "border-gray-200 dark:border-white/10 shadow-xs hover:-translate-y-1"
       }`}
     >
       {/* Top Graphic Section */}
-      <div className="h-32 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 relative p-6 flex flex-col justify-end">
+      <div className="h-32 bg-linear-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 relative p-6 flex flex-col justify-end">
         <div className="absolute top-4 right-4 bg-white/80 dark:bg-black/40 backdrop-blur text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 border border-white/20">
           <Trophy className="w-3 h-3 text-amber-500" />#{university.ranking}{" "}
           World
