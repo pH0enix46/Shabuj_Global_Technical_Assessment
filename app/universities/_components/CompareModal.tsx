@@ -114,7 +114,7 @@ export default function CompareModal() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative w-full max-w-4xl bg-white dark:bg-slate-950 border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
-              <div className="p-6 border-b border-gray-100 dark:border-white/10 flex items-center justify-between sticky top-0 bg-white/50 dark:bg-black/50 backdrop-blur-xl z-20">
+              <div className="p-4 md:p-6 border-b border-gray-100 dark:border-white/10 flex items-center justify-between sticky top-0 bg-white/50 dark:bg-black/50 backdrop-blur-xl z-20">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
                     <Scale className="w-5 h-5" />
@@ -135,10 +135,10 @@ export default function CompareModal() {
               </div>
 
               <div
-                className="overflow-y-auto p-6 flex-1 custom-scrollbar"
+                className="overflow-y-auto p-4 md:p-6 flex-1 custom-scrollbar"
                 data-lenis-prevent="true"
               >
-                <div className="grid grid-cols-2 gap-6 relative">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 relative">
                   {/* Decorative divider */}
                   <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 dark:bg-white/10 -translate-x-1/2 hidden md:block" />
 

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 export default function LandingPage() {
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-background overflow-hidden">
-      <div className="flex gap-5 items-center justify-center">
+      <div className="flex flex-col md:flex-row gap-5 items-center justify-center">
         <Link href="/universities">
           <Button size="lg" className="group">
             Find Universities
