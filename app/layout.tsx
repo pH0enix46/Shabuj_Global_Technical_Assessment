@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     "International Students",
   ],
   authors: [{ name: "Shabuj Global Education" }],
+
   openGraph: {
     title: "Shabuj Global Education | Study Abroad Guidance",
     description:
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  
   twitter: {
     card: "summary_large_image",
     title: "Shabuj Global Education | Study Abroad Guidance",

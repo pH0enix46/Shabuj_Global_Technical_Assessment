@@ -1,4 +1,4 @@
-# Technical Assessment – Full Stack Developer Intern (8 Months) | Shabuj Global Education
+# Technical Assessment – Full Stack Developer | Shabuj Global Education
 
 ---
 
@@ -78,6 +78,12 @@ Users can select two universities and view a side-by-side comparison inside a mo
 ## 📦 Deployment
 
 Live Demo: _(https://shabuj-global.vercel.app/)_
+
+**How i made this Assessment? Check this 2 video**
+
+Video - 1: _(https://drive.google.com/file/d/1psbSzRLcCH7Pdt_GBYCSq_3uPKlFdIds/view?usp=drive_link)_
+
+Video - 2: _(https://drive.google.com/file/d/1ydsRv5WFEzKfSiOOFqArkmaPy4rCBWLu/view?usp=drive_link)_
 
 ---
 
