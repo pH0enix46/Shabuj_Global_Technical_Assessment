@@ -4,6 +4,7 @@ import { Rubik } from "next/font/google";
 import "./globals.css";
 import { CompareProvider } from "./_context/CompareContext";
 import { ThemeProvider } from "./_context/theme-context";
+import ModernScroll from "./_context/modern-scroll";
 import Navbar from "./_components/Navbar";
 import CompareModal from "./_components/CompareModal";
 import { Toaster } from "sonner";
@@ -27,15 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`$${rubik.variable} antialiased`}>
+      <body className={`${rubik.variable} antialiased`}>
         <ThemeProvider>
-          <Navbar />
-          <CompareProvider>
-            <main className="relative z-0 min-h-screen w-full overflow-x-hidden">
-              {children}
-            </main>
-            <CompareModal />
-          </CompareProvider>
+          <ModernScroll>
+            <Navbar />
+            <CompareProvider>
+              <main className="relative z-0 min-h-screen w-full overflow-x-hidden">
+                {children}
+              </main>
+              <CompareModal />
+            </CompareProvider>
+          </ModernScroll>
 
           {/* Global Toast Notifications */}
           <Toaster position="bottom-right" richColors closeButton />
