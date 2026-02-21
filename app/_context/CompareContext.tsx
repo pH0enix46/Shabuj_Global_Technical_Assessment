@@ -21,23 +21,23 @@ export function CompareProvider({ children }: { children: ReactNode }) {
   const [isCompareModalOpen, setCompareModalOpen] = useState(false);
 
   const toggleCompare = (uni: University) => {
-    setSelectedForCompare((prev) => {
-      const isSelected = prev.some((u) => u.id === uni.id);
-      if (isSelected) {
-        toast.info(`Removed ${uni.name} from comparison.`);
-        const newSelection = prev.filter((u) => u.id !== uni.id);
-        if (newSelection.length === 0) setCompareModalOpen(false);
-        return newSelection;
-      }
+    const isSelected = selectedForCompare.some((u) => u.id === uni.id);
 
-      if (prev.length >= 2) {
-        toast.error("You can only compare up to 2 universities at a time.");
-        return prev;
-      }
+    if (isSelected) {
+      toast.info(`Removed ${uni.name} from comparison.`);
+      const newSelection = selectedForCompare.filter((u) => u.id !== uni.id);
+      setSelectedForCompare(newSelection);
+      if (newSelection.length === 0) setCompareModalOpen(false);
+      return;
+    }
 
-      toast.success(`Added ${uni.name} to comparison!`);
-      return [...prev, uni];
-    });
+    if (selectedForCompare.length >= 2) {
+      toast.error("You can only compare up to 2 universities at a time.");
+      return;
+    }
+
+    toast.success(`Added ${uni.name} to comparison!`);
+    setSelectedForCompare((prev) => [...prev, uni]);
   };
 
   const clearCompare = () => {
