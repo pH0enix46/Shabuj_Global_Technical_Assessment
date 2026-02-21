@@ -1,7 +1,6 @@
 "use client";
 
-import { University } from "@prisma/client";
-import { motion } from "motion/react";
+import { University } from "../_lib/types";
 import {
   MapPin,
   Trophy,
@@ -15,25 +14,19 @@ import { useCompare } from "../_context/CompareContext";
 
 export default function UniversityCard({
   university,
-  index,
 }: {
   university: University;
-  index: number;
 }) {
   const { selectedForCompare, toggleCompare } = useCompare();
 
   const isSelected = selectedForCompare.some((u) => u.id === university.id);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      whileHover={{ y: -5 }}
-      className={`relative group bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border transition-all ${
+    <div
+      className={`relative group bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border transition-all duration-300 ${
         isSelected
           ? "border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-          : "border-gray-200 dark:border-white/10 shadow-sm hover:shadow-xl"
+          : "border-gray-200 dark:border-white/10 shadow-sm hover:shadow-xl hover:-translate-y-1"
       }`}
     >
       {/* Top Graphic Section */}
@@ -99,6 +92,6 @@ export default function UniversityCard({
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

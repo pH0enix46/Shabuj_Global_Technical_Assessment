@@ -1,8 +1,7 @@
 "use client";
 
-import { University } from "@prisma/client";
+import { University } from "../_lib/types";
 import UniversityCard from "./UniversityCard";
-import { motion } from "motion/react";
 import { Inbox } from "lucide-react";
 
 export default function UniversityGrid({
@@ -27,13 +26,10 @@ export default function UniversityGrid({
   }
 
   return (
-    <motion.div
-      layout
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 w-full"
-    >
-      {universities.map((uni, idx) => (
-        <UniversityCard key={uni.id} index={idx} university={uni} />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 w-full fade-in">
+      {universities.map((uni) => (
+        <UniversityCard key={uni.id} university={uni} />
       ))}
-    </motion.div>
+    </div>
   );
 }

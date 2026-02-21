@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { University } from "@prisma/client";
+import { University } from "../_lib/types";
 import { toast } from "sonner";
 
 interface CompareContextType {

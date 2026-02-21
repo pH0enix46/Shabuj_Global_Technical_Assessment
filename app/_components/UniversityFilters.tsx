@@ -30,13 +30,13 @@ export default function UniversityFilters({
 
   const handleFilter = (key: string, value: string) => {
     startTransition(() => {
-      router.push(`?${createQueryString(key, value)}`);
+      router.push(`?${createQueryString(key, value)}`, { scroll: false });
     });
   };
 
   const handleClear = () => {
     startTransition(() => {
-      router.push("/universities");
+      router.push("/universities", { scroll: false });
     });
   };
 
@@ -45,6 +45,9 @@ export default function UniversityFilters({
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold flex items-center gap-2">
           <Filter className="w-5 h-5 text-blue-500" /> Filters
+          {isPending && (
+            <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          )}
         </h2>
         {Array.from(searchParams.keys()).length > 0 && (
           <button
@@ -184,12 +187,6 @@ export default function UniversityFilters({
           </label>
         </div>
       </div>
-
-      {isPending && (
-        <div className="absolute inset-0 bg-white/40 dark:bg-black/40 backdrop-blur-[2px] flex items-center justify-center rounded-3xl z-20">
-          <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
     </div>
   );
 }
