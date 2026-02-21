@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import {
   UniversitySearchParams,
   universitySearchParamsSchema,
@@ -24,7 +24,7 @@ export async function getUniversities(
   const filters = parsed.data;
 
   // Build the Prisma "where" clause based on valid filters
-  const where: Prisma.UniversityWhereInput = {};
+  const where: Record<string, unknown> = {};
 
   if (filters.query) {
     where.OR = [
@@ -108,10 +108,11 @@ export async function getFilterOptions() {
     });
 
     return {
-      countries: countries.map((c) => c.country),
-      locations: locations.map((l) => l.location),
+      countries: countries.map((c: { country: string }) => c.country),
+      locations: locations.map((l: { location: string }) => l.location),
     };
-  } catch (err) {
+  } catch (error) {
+    console.error("Failed to fetch filter options", error);
     return { countries: [], locations: [] };
   }
 }

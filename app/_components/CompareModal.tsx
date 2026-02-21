@@ -49,7 +49,7 @@ export default function CompareModal() {
                 {selectedForCompare.length}/2 Selected
               </div>
 
-              <div className="w-[1px] h-6 bg-gray-300 dark:bg-gray-700" />
+              <div className="w-px h-6 bg-gray-300 dark:bg-gray-700" />
 
               <button
                 onClick={() => setCompareModalOpen(true)}
@@ -121,7 +121,7 @@ export default function CompareModal() {
                     <div key={uni.id} className="flex flex-col gap-6">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
+                          <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-br from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
                             {uni.name}
                           </h3>
                           <div className="flex items-center gap-2 mt-2 text-sm text-gray-500">
@@ -226,7 +226,7 @@ export default function CompareModal() {
                                 Programs Offered
                               </span>
                               <div className="flex flex-wrap gap-2">
-                                {uni.courseTypes.map((c) => (
+                                {uni.courseTypes.map((c: string) => (
                                   <span
                                     key={c}
                                     className="text-xs font-medium bg-gray-100 dark:bg-white/10 px-2 py-1 rounded"

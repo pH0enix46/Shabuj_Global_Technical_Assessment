@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useTransition } from "react";
-import { Filter, Search, GraduationCap } from "lucide-react";
+import { Filter, Search } from "lucide-react";
 
 export default function UniversityFilters({
   countries,
