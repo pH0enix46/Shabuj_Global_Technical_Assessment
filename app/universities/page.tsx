@@ -2,9 +2,10 @@
 import { UniversitySearchParams } from "../_lib/validators/validations";
 import UniversityGrid from "./_components/UniversityGrid";
 import UniversityFilters from "./_components/UniversityFilters";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Loader2 } from "lucide-react";
 import { getFilterOptions, getUniversities } from "@/_server/data/data";
 import CompareModal from "./_components/CompareModal";
+import { Suspense } from "react";
 
 export const revalidate = 0;
 
@@ -13,17 +14,10 @@ export default async function UniversitiesPage({
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
-  const unresolvedParams = await searchParams;
+  const query = await searchParams;
 
-  const query = unresolvedParams;
-
-  // Fetch Server Data
-  const [dataPayload, filterOptions] = await Promise.all([
-    getUniversities(query as Partial<UniversitySearchParams>),
-    getFilterOptions(),
-  ]);
-
-  const { data: universities, count } = dataPayload;
+  // Only statically fetch the filter options here so page wrapper renders instantly
+  const filterOptions = await getFilterOptions();
 
   return (
     <main className="min-h-screen bg-transparent">
@@ -55,22 +49,73 @@ export default async function UniversitiesPage({
           locations={filterOptions.locations}
         />
 
-        {/* Results Grid */}
+        {/* Results Grid Wrapper */}
         <div className="flex-1 w-full min-w-0">
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Search Results
-            </h2>
-            <div className="bg-sky-50 text-primary dark:bg-blue-900/20 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-bold border border-primary/30">
-              {count} {count === 1 ? "University" : "Universities"}
-            </div>
-          </div>
-          <UniversityGrid universities={universities} />
+          <Suspense key={JSON.stringify(query)} fallback={<GridSkeleton />}>
+            <GridResultsFetcher query={query} />
+          </Suspense>
         </div>
       </section>
 
       {/* Compare Modal */}
       <CompareModal />
     </main>
+  );
+}
+
+// Extracted Data Fetcher Component to Enable Granular Loading Skeletons
+async function GridResultsFetcher({
+  query,
+}: {
+  query: { [key: string]: string | undefined };
+}) {
+  const { data: universities, count } = await getUniversities(
+    query as Partial<UniversitySearchParams>,
+  );
+
+  return (
+    <>
+      <div className="flex items-center justify-between mb-2">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Search Results
+        </h2>
+        <div className="bg-sky-50 text-primary dark:bg-blue-900/20 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-bold border border-primary/30">
+          {count} {count === 1 ? "University" : "Universities"}
+        </div>
+      </div>
+      <UniversityGrid universities={universities} />
+    </>
+  );
+}
+
+// Beautiful Loading Placeholder
+function GridSkeleton() {
+  return (
+    <div className="w-full">
+      <div className="flex items-center justify-between mb-2">
+        <div className="h-8 w-40 bg-gray-200 dark:bg-white/10 rounded animate-pulse" />
+        <div className="h-6 w-24 bg-gray-200 dark:bg-white/10 rounded-full animate-pulse" />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div
+            key={i}
+            className="h-72 bg-gray-100 dark:bg-white/5 rounded-2xl animate-pulse border border-gray-200 dark:border-white/10"
+          >
+            <div className="h-32 bg-gray-200 dark:bg-white/10 rounded-t-2xl w-full" />
+            <div className="p-6 space-y-4">
+              <div className="h-4 bg-gray-200 dark:bg-white/10 rounded w-3/4" />
+              <div className="h-4 bg-gray-200 dark:bg-white/10 rounded w-1/2" />
+              <div className="h-4 bg-gray-200 dark:bg-white/10 rounded w-full" />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="w-full flex justify-center mt-12 mb-6">
+        <div className="flex items-center gap-2 text-primary font-bold animate-pulse">
+          <Loader2 className="w-5 h-5 animate-spin" /> Fetching Results...
+        </div>
+      </div>
+    </div>
   );
 }
