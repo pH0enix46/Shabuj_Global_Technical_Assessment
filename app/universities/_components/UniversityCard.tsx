@@ -30,13 +30,12 @@ export default function UniversityCard({
           : "border-gray-200 dark:border-white/10 shadow-xs hover:-translate-y-1"
       }`}
     >
-      {/* Top Graphic Section */}
-      <div className="h-32 bg-linear-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 relative p-6 flex flex-col justify-end">
-        <div className="absolute top-4 right-4 bg-white/80 dark:bg-black/40 backdrop-blur text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1 border border-white/20">
-          <Trophy className="w-3 h-3 text-amber-500" />#{university.ranking}{" "}
-          World
+      {/* Top Section */}
+      <div className="h-32 bg-slate-200/60 border-b border-b-slate-200 dark:bg-slate-900 dark:border-b-slate-800 relative p-6 flex flex-col justify-end gap-1.5">
+        <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 w-fit">
+          <Trophy className="w-4 h-4" />#{university.ranking} World
         </div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-2 leading-tight drop-shadow-sm">
+        <h3 className="text-xl font-bold text-foreground line-clamp-2 leading-tight">
           {university.name}
         </h3>
       </div>
@@ -78,10 +77,10 @@ export default function UniversityCard({
           <button
             onClick={() => toggleCompare(university)}
             disabled={!isSelected && selectedForCompare.length >= 2}
-            className={`flex items-center justify-center p-2 rounded-full transition-colors ${
+            className={`flex items-center justify-center p-2 rounded-full transition-colors cursor-pointer ${
               isSelected
                 ? "bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-900/50 dark:text-blue-400 dark:hover:bg-blue-900"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/20"
+                : "bg-slate-200 text-gray-600 hover:bg-slate-200/80 dark:bg-slate-800/80 dark:text-gray-300 dark:hover:bg-slate-800/60"
             } ${!isSelected && selectedForCompare.length >= 2 ? "opacity-50 cursor-not-allowed" : ""}`}
             title={isSelected ? "Remove from Compare" : "Add to Compare"}
           >
