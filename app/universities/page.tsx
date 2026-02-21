@@ -1,8 +1,9 @@
 import { UniversitySearchParams } from "../_lib/validators/validations";
-import UniversityGrid from "../_components/UniversityGrid";
-import UniversityFilters from "../_components/UniversityFilters";
+import UniversityGrid from "./_components/UniversityGrid";
+import UniversityFilters from "./_components/UniversityFilters";
 import { GraduationCap } from "lucide-react";
 import { getFilterOptions, getUniversities } from "@/_server/data/data";
+import CompareModal from "./_components/CompareModal";
 
 export const revalidate = 0; // Ensures it's dynamically rendered due to searchParams
 
@@ -67,6 +68,9 @@ export default async function UniversitiesPage({
           <UniversityGrid universities={universities} />
         </div>
       </section>
+
+      {/* Compare Modal */}
+      <CompareModal />
     </main>
   );
 }

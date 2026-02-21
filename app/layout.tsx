@@ -5,8 +5,7 @@ import "./globals.css";
 import { CompareProvider } from "./_context/CompareContext";
 import { ThemeProvider } from "./_context/theme-context";
 import ModernScroll from "./_context/modern-scroll";
-import Navbar from "./_components/Navbar";
-import CompareModal from "./_components/CompareModal";
+import Navbar from "./_components/common/Navbar";
 import { Toaster } from "sonner";
 
 const rubik = Rubik({
@@ -36,7 +35,6 @@ export default function RootLayout({
               <main className="relative z-0 min-h-screen w-full overflow-x-hidden">
                 {children}
               </main>
-              <CompareModal />
             </CompareProvider>
           </ModernScroll>
 

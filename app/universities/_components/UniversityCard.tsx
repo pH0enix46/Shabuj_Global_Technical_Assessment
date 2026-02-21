@@ -1,6 +1,5 @@
 "use client";
 
-import { University } from "../_types/types";
 import {
   MapPin,
   Trophy,
@@ -10,7 +9,9 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import { useCompare } from "../_context/CompareContext";
+
+import { University } from "@/_types/types";
+import { useCompare } from "@/_context/CompareContext";
 
 export default function UniversityCard({
   university,

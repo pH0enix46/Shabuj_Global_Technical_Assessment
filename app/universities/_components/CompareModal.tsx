@@ -1,6 +1,5 @@
 "use client";
 
-import { useCompare } from "../_context/CompareContext";
 import { motion, AnimatePresence } from "motion/react";
 import {
   X,
@@ -11,6 +10,9 @@ import {
   Trophy,
   Target,
 } from "lucide-react";
+import { useCompare } from "@/_context/CompareContext";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function CompareModal() {
   const {
@@ -21,10 +23,27 @@ export default function CompareModal() {
     setCompareModalOpen,
   } = useCompare();
 
-  if (selectedForCompare.length === 0) return null;
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setMounted(true), 0);
+  }, []);
 
-  return (
-    <>
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isCompareModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isCompareModalOpen]);
+
+  if (!mounted || selectedForCompare.length === 0) return null;
+
+  return createPortal(
+    <div className="relative z-9999">
       {/* Floating Action Button / Dock */}
       <AnimatePresence>
         {!isCompareModalOpen && selectedForCompare.length > 0 && (
@@ -75,7 +94,10 @@ export default function CompareModal() {
       {/* Actual Compare Modal */}
       <AnimatePresence>
         {isCompareModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            data-lenis-prevent="true"
+          >
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -112,7 +134,10 @@ export default function CompareModal() {
                 </button>
               </div>
 
-              <div className="overflow-y-auto p-6 flex-1 custom-scrollbar">
+              <div
+                className="overflow-y-auto p-6 flex-1 custom-scrollbar"
+                data-lenis-prevent="true"
+              >
                 <div className="grid grid-cols-2 gap-6 relative">
                   {/* Decorative divider */}
                   <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 dark:bg-white/10 -translate-x-1/2 hidden md:block" />
@@ -247,6 +272,7 @@ export default function CompareModal() {
           </div>
         )}
       </AnimatePresence>
-    </>
+    </div>,
+    document.body,
   );
 }

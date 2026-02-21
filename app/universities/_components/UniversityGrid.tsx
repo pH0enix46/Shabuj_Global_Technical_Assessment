@@ -1,6 +1,6 @@
 "use client";
 
-import { University } from "../_types/types";
+import { University } from "../../_types/types";
 import UniversityCard from "./UniversityCard";
 import { Inbox } from "lucide-react";
 
