@@ -6,6 +6,28 @@ import { GraduationCap, Loader2 } from "lucide-react";
 import { getFilterOptions, getUniversities } from "@/_server/data/data";
 import CompareModal from "./_components/CompareModal";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Search & Compare Global Universities | Shabuj Global Education",
+  description:
+    "Explore, filter, and dynamically compare thousands of world-class universities. Find the perfect match for your study abroad journey based on tuition, IELTS scores, location, and scholarships.",
+  keywords: [
+    "University Search",
+    "Compare Universities",
+    "Study Abroad Degrees",
+    "University Tuition Fees",
+    "IELTS Requirements",
+    "International Scholarships",
+  ],
+  openGraph: {
+    title: "Find & Compare Global Universities | Shabuj Global Education",
+    description:
+      "Explore, filter, and dynamically compare thousands of world-class universities. Find the perfect match for your study abroad journey.",
+    url: "https://shabujglobal.com/universities",
+    images: [{ url: "/shabuj-global.png" }],
+  },
+};
 
 export const revalidate = 0;
 
