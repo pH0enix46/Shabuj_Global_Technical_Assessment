@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CompareProvider } from "./_context/CompareContext";
+import { ThemeProvider } from "./_context/theme-context";
+import Navbar from "./_components/Navbar";
 import CompareModal from "./_components/CompareModal";
 import { Toaster } from "sonner";
 
@@ -27,17 +29,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth antialiased">
+    <html
+      lang="en"
+      className="scroll-smooth antialiased"
+      suppressHydrationWarning
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-[#fafafa] dark:bg-black text-gray-900 dark:text-gray-100 selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-200 min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-background text-foreground selection:bg-primary/30 selection:text-primary min-h-screen`}
       >
-        <CompareProvider>
-          {children}
-          <CompareModal />
-        </CompareProvider>
+        <ThemeProvider>
+          <Navbar />
+          <CompareProvider>
+            {children}
+            <CompareModal />
+          </CompareProvider>
 
-        {/* Global Toast Notifications */}
-        <Toaster position="bottom-right" richColors theme="system" />
+          {/* Global Toast Notifications */}
+          <Toaster position="bottom-right" richColors theme="system" />
+        </ThemeProvider>
       </body>
     </html>
   );
