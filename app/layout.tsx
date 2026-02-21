@@ -1,5 +1,6 @@
+// // //
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import { CompareProvider } from "./_context/CompareContext";
 import { ThemeProvider } from "./_context/theme-context";
@@ -7,14 +8,10 @@ import Navbar from "./_components/Navbar";
 import CompareModal from "./_components/CompareModal";
 import { Toaster } from "sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const rubik = Rubik({
+  variable: "--font-rubik",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -29,23 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="scroll-smooth antialiased"
-      suppressHydrationWarning
-    >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-background text-foreground selection:bg-primary/30 selection:text-primary min-h-screen`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`$${rubik.variable} antialiased`}>
         <ThemeProvider>
           <Navbar />
           <CompareProvider>
-            {children}
+            <main className="relative z-0 min-h-screen w-full overflow-x-hidden">
+              {children}
+            </main>
             <CompareModal />
           </CompareProvider>
 
           {/* Global Toast Notifications */}
-          <Toaster position="bottom-right" richColors theme="system" />
+          <Toaster position="bottom-right" richColors closeButton />
         </ThemeProvider>
       </body>
     </html>

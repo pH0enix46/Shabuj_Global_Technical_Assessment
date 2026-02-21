@@ -99,20 +99,4 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
-  /* Global Recharts Style Overrides */
-  .recharts-wrapper,
-  .recharts-surface,
-  .recharts-wrapper *:focus {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-
-  .recharts-layer:focus,
-  .recharts-sector:focus,
-  .recharts-curve:focus,
-  .recharts-dot:focus {
-    outline: none !important;
-  }
 }
