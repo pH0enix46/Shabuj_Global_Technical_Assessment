@@ -51,7 +51,7 @@ export default function CompareModal() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 backdrop-blur-xl"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 backdrop-blur-xl rounded-full"
           >
             <div className="bg-primary/20 backdrop-blur-xl border border-primary/20 shadow rounded-full p-2 flex items-center gap-4">
               <div className="flex -space-x-3 pl-2">
