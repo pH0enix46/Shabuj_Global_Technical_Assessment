@@ -1,5 +1,5 @@
+// // //
 "use client";
-
 import { useState, useEffect } from "react";
 import { University } from "../_types/types";
 
@@ -12,7 +12,7 @@ export default function ApiTestPage() {
     async function fetchFromApi() {
       try {
         setLoading(true);
-        // Calling our newly created API Route
+        // - Calling our newly created API Route
         const response = await fetch("/api/universities?country=UK");
         const json = await response.json();
 
@@ -32,14 +32,14 @@ export default function ApiTestPage() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto p-10">
+    <div className="max-w-5xl mx-auto p-10">
       <h1 className="text-3xl font-bold mb-6">REST API Live Test</h1>
       <p className="mb-4 text-gray-600 dark:text-gray-400">
         This page fetches data from{" "}
         <code className="bg-gray-100 dark:bg-white/10 px-2 py-1 rounded">
           /api/universities?country=UK
         </code>{" "}
-        using the <strong>Client-side Fetch API</strong>.
+        using the <strong>Client-side Fetch API</strong>
       </p>
 
       {loading && (
@@ -59,7 +59,7 @@ export default function ApiTestPage() {
         {data.map((uni) => (
           <div
             key={uni.id}
-            className="p-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl shadow-sm"
+            className="p-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl shadow-xs"
           >
             <h3 className="font-bold text-lg">{uni.name}</h3>
             <p className="text-sm text-gray-500">
@@ -70,7 +70,7 @@ export default function ApiTestPage() {
       </div>
 
       {!loading && data.length === 0 && !error && (
-        <p>No universities found via API.</p>
+        <p>No universities found via API</p>
       )}
     </div>
   );

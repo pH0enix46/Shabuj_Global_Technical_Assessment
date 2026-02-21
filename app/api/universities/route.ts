@@ -1,11 +1,7 @@
+// // //
+import { getUniversities } from "@/_server/data/data";
 import { NextRequest, NextResponse } from "next/server";
-import { getUniversities } from "../../_lib/actions";
 
-/**
- * @description GET /api/universities
- * Explicit API Route to handle university filtering logic as requested.
- * This can be used by external clients or as a fallback for the main application.
- */
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
