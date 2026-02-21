@@ -8,21 +8,21 @@ datasource db {
 }
 
 model University {
-  id              String   @id @default(uuid())
+  id              String @id @default(uuid())
   name            String
   country         String
   location        String
   tuitionFee      Int
   ranking         Int
   establishedYear Int
-  
-  // Advanced filters
+
+  // - Advanced filters
   acceptanceRate  Int
   minIeltsScore   Float
   hasScholarships Boolean
-  campusType      String   // Urban, Suburban, Rural
+  campusType      String // Urban, Suburban, Rural
   courseTypes     String[] // e.g., ["Undergraduate", "Postgraduate", "PhD"]
 
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
