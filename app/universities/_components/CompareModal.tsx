@@ -51,14 +51,14 @@ export default function CompareModal() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 backdrop-blur-xl"
           >
-            <div className="bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-2xl rounded-full p-2 flex items-center gap-4">
+            <div className="bg-primary/20 backdrop-blur-xl border border-primary/20 shadow rounded-full p-2 flex items-center gap-4">
               <div className="flex -space-x-3 pl-2">
                 {selectedForCompare.map((uni, i) => (
                   <div
                     key={uni.id}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-sm ring-2 ring-white dark:ring-black ${i === 0 ? "bg-blue-500" : "bg-indigo-500"}`}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-sm ring-2 ring-primary/20 ${i === 0 ? "bg-blue-600" : "bg-indigo-500"}`}
                   >
                     {uni.name.charAt(0)}
                   </div>
@@ -73,7 +73,7 @@ export default function CompareModal() {
               <button
                 onClick={() => setCompareModalOpen(true)}
                 disabled={selectedForCompare.length < 2}
-                className="flex items-center gap-2 bg-blue-600 disabled:bg-blue-600/50 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors disabled:cursor-not-allowed"
+                className="flex items-center gap-2 bg-primary cursor-pointer disabled:bg-primary/50 hover:bg-primary/80 shadow-xs text-sky-50 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 disabled:cursor-not-allowed"
               >
                 <Scale className="w-4 h-4" />
                 Compare
@@ -81,7 +81,7 @@ export default function CompareModal() {
 
               <button
                 onClick={clearCompare}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full text-gray-500 dark:text-gray-400 transition-colors"
+                className="p-2 hover:bg-rose-500 hover:text-rose-50 cursor-pointer rounded-full text-rose-500 transition-colors"
                 title="Clear Compare"
               >
                 <X className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function CompareModal() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-4xl bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              className="relative w-full max-w-4xl bg-white dark:bg-slate-950 border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             >
               <div className="p-6 border-b border-gray-100 dark:border-white/10 flex items-center justify-between sticky top-0 bg-white/50 dark:bg-black/50 backdrop-blur-xl z-20">
                 <div className="flex items-center gap-3">
@@ -128,7 +128,7 @@ export default function CompareModal() {
                 </div>
                 <button
                   onClick={() => setCompareModalOpen(false)}
-                  className="p-2 bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 rounded-full transition-colors"
+                  className="p-2 hover:bg-rose-500 hover:text-rose-50 cursor-pointer rounded-full text-rose-500 transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -156,7 +156,7 @@ export default function CompareModal() {
                         </div>
                         <button
                           onClick={() => toggleCompare(uni)}
-                          className="text-gray-400 hover:text-red-500 transition-colors"
+                          className="text-gray-400 cursor-pointer hover:text-red-500 transition-colors"
                         >
                           <X className="w-5 h-5" />
                         </button>
