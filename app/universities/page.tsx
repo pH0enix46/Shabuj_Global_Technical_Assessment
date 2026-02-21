@@ -6,7 +6,7 @@ import { GraduationCap } from "lucide-react";
 import { getFilterOptions, getUniversities } from "@/_server/data/data";
 import CompareModal from "./_components/CompareModal";
 
-export const revalidate = 0; // Ensures it's dynamically rendered due to searchParams
+export const revalidate = 0;
 
 export default async function UniversitiesPage({
   searchParams,
@@ -15,7 +15,6 @@ export default async function UniversitiesPage({
 }) {
   const unresolvedParams = await searchParams;
 
-  // Transform standard search params into validation shape
   const query = unresolvedParams;
 
   // Fetch Server Data
@@ -37,7 +36,7 @@ export default async function UniversitiesPage({
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-gray-900 dark:text-white">
             Find Your{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-indigo-700 dark:from-blue-400 dark:to-indigo-700">
               Perfect University
             </span>
           </h1>
@@ -49,7 +48,7 @@ export default async function UniversitiesPage({
       </section>
 
       {/* Main Content Layout */}
-      <section className="max-w-7xl mx-auto px-6 xl:px-0 py-12 flex flex-col md:flex-row gap-8 items-start relative pb-32">
+      <section className="max-w-8xl mx-auto px-6 xl:px-16 py-12 flex flex-col md:flex-row gap-8 items-start relative pb-32">
         {/* Filters Sidebar */}
         <UniversityFilters
           countries={filterOptions.countries}
