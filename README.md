@@ -1,2 +1,3 @@
 Shabuj_Global_Technical_Assessment ...
 npx prisma db push
+npx prisma db seed
