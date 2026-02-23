@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
       "sonner",
     ],
   },
+  cacheComponents: true,
 
   compiler: {
     removeConsole:
