@@ -15,6 +15,7 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shabujglobal.com"),
   title: "Shabuj Global Education | Study Abroad Guidance",
   description:
     "Shabuj Global Education helps students reach their goals with expert study abroad guidance, university admissions support, and visa assistance.",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  
+
   twitter: {
     card: "summary_large_image",
     title: "Shabuj Global Education | Study Abroad Guidance",
