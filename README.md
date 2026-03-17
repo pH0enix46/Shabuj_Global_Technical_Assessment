@@ -36,7 +36,7 @@ Each university contains:
 
 ### 2️⃣ Server-Side Filtering
 
-All filtering logic is handled on the backend for better performance and scalability.
+All filtering logic is handled on the backend for better performance and scalability
 
 Available Filters:
 
